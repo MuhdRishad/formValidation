@@ -11,9 +11,9 @@
 </head>
 <body>
     <div class="row my-5">
-        <div class="col-4"></div>
-        <div class="col-4">
-            <form action="" name="myForm" onsubmit="return validate()" method="POST">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4 shadow px-5 py-4 rounded">
+            <form action="" name="myForm" onsubmit="return validate()" method="POST" id="id_form">
                 <div>
                     <label for="id_firstname" class="label">firstname</label>
                     <input type="text" name="firstname" id="id_firstname" class="form-control">
@@ -58,10 +58,11 @@
                 </div>
                 <div class="text-center">
                     <input type="submit" value="submit" class="btn btn-primary">
+                    <button class="btn btn-primary" onclick="fun()">Reset</button>
                 </div>
             </form>
         </div>
-        <div class="col-4"></div>
+        <div class="col-lg-4"></div>
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>

@@ -1,6 +1,9 @@
 function validate(){
+
     var firstname = document.myForm.firstname.value;
-    if (firstname == "") {
+    var re = /^[a-zA-Z]*$/;
+    var match = re.test(firstname);
+    if ( match == false || firstname == "" ) {
         error_fname.innerHTML = "Enter your first name";
         document.myForm.firstname.focus();
         return false;
@@ -10,7 +13,9 @@ function validate(){
 
 
     var lastname = document.myForm.lastname.value;
-    if (lastname == "") {
+    var reg = /^[a-zA-Z]*$/;
+    var result = reg.test(lastname);
+    if ( result == false || lastname == "") {
         error_lname.innerHTML = "Enter your last name";
         document.myForm.lastname.focus();
         return false;
@@ -19,7 +24,9 @@ function validate(){
     }
 
     var username = document.myForm.username.value;
-    if (username == ""){
+    var regex = /^[a-zA-Z]*$/;
+    var check = regex.test(username);
+    if ( check == false ||  username == ""){
         error_uname.innerHTML = "Enter username";
         document.myForm.username.focus();
         return false;
@@ -50,7 +57,7 @@ function validate(){
 
 
     var pincode = document.myForm.pincode.value;
-    if ( pincode == "" || isNaN()) {
+    if ( pincode == "" || isNaN(pincode)) {
         error_pincode.innerHTML = "Enter valid pincode";
         document.myForm.pincode.focus();
         return false;
@@ -59,24 +66,29 @@ function validate(){
     }
 
     var password = document.myForm.password.value;
-    var re = /^[A-Za-z0-9]\w{8}$/;
+    var re = /^[A-Za-z0-9]\w{5,7}$/;
     var check = re.test(password);
     if ( check == false ) {
-        error_password.innerHTML = "Enter a password between minimum 8 charecters";
+        error_password.innerHTML = "Password minimum 6 to 8 charecters";
         document.myForm.password.focus();
         return false;
     } else {
-        error_password.innerHTML = ""
+        error_password.innerHTML = "";
     }
 
 
     var confirmpass = document.myForm.confirmpass.value;
-    if (password != confirmpass) {
-        error_confirmpass.innerHTML = "Password deos't match !";
+    if (password == confirmpass) {
+        error_confirmpass.innerHTML = "";
+        return alert("Registration success");
+    } else {
+        error_confirmpass.innerHTML = "Password deosn't match !";
         document.myForm.confirmpass.focus();
         return false;
-    } else {
-        error_confirmpass.innerHTML = "";
     }
-    return true;   
+}
+
+
+function fun(){
+    document.getElementById('id_form').reset();
 }
